@@ -1,9 +1,9 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
-#include <stdio.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <stdio.h>
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -111,7 +111,7 @@ typedef struct builtin
 } builtin_table;
 
 
-/* pretty.c */
+/* _atoi1.c */
 int hsh(info_t *, char **);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
