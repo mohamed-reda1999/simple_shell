@@ -112,9 +112,9 @@ typedef struct builtin
 
 
 /* _atoi1.c */
-int is_delim(char, char *);
 int interactive(info_t *);
-int _atoi(char *);
+int is_delim(char, char *);
+int _isalpha(int);
 int _atoi(char *);
 
 /* unix.c */
