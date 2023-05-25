@@ -5,7 +5,7 @@
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  * Return: Always 0
-*/
+et/
 char **get_environ(info_t *info)
 {
 	if (!info->environ || info->env_changed)
@@ -50,7 +50,8 @@ int _unsetenv(info_t *info, char *var)
 }
 
 /**
- * _setenv - Set up a new environment variable or alter one that already exists.
+ * _setenv - Set up a new environment,
+ * variable or alter one that already exists.
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  * @var: env variable with a string value

@@ -2,7 +2,7 @@
 
 /**
  * _myexit - the shell exits
- * @info: Arrangement with potential arguments 
+ * @info: Arrangement with potential arguments;
  * used to retain the prototype of the constant function.
  * Return: has a certain exit status and exits
  * (0) if info.argv[0] != "exit"
