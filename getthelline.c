@@ -5,7 +5,7 @@
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  * Return: Always 0
-et/
+**/
 char **get_environ(info_t *info)
 {
 	if (!info->environ || info->env_changed)
