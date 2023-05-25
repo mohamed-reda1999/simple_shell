@@ -51,7 +51,8 @@ typedef struct liststr
 } list_t;
 
 /**
- * struct passinfo - provides fictitious arguments that can be used to call a function,
+ * struct passinfo - provides fictitious arguments,
+ * that can be used to call a function,
  * allowing a consistent prototype for function pointer structs.
  * @arg: a string produced by getline that contains arguments
  * @argv:an array of strings generated from arg
@@ -100,7 +101,8 @@ typedef struct passinfo
 		0, 0, 0}
 
 /**
- * struct builtin - includes a built-in string and associated functionality, as well as a
+ * struct builtin - includes a built-in string,
+ * associated functionality, as well as a
  * @type: built-in command flag.
  * @func: the function
  */
