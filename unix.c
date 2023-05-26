@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * _myexit - the shell exits
+ * _weexit - the shell exits
  * @info: Arrangement with potential arguments;
  * used to retain the prototype of the constant function.
  * Return: has a certain exit status and exits
  * (0) if info.argv[0] != "exit"
 */
 
-int _myexit(info_t *info)
+int _weexit(info_t *info)
 {
 	int exitcheck;
 
@@ -31,13 +31,13 @@ int _myexit(info_t *info)
 }
 
 /**
- * _mycd - alters the process's current directory
+ * _wecd - alters the process's current directory
  * @info: Arrangement with potential arguments
  * used to keep the prototype constant function
  * Return: Always 0
 */
 
-int _mycd(info_t *info)
+int _wecd(info_t *info)
 {
 	char *s, *dir, buffer[1024];
 	int chdir_ret;
@@ -82,13 +82,13 @@ int _mycd(info_t *info)
 }
 
 /**
- * _myhelp - alters the process's current directory
+ * _wehelp - alters the process's current directory
  * @info: Arrangement with potential arguments
  * used to keep the prototype constant function
  * Return: Always 0
 */
 
-int _myhelp(info_t *info)
+int _wehelp(info_t *info)
 {
 	char **arg_array;
 

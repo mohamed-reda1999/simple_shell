@@ -18,11 +18,11 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 		/*bfree((void **)info->cmd_buf);*/
 		free(*buf);
 		*buf = NULL;
-		signal(SIGINT, sigintHandler);
+		signal(SIGINT, sigin);
 #if USE_GETLINE
 		r = getline(buf, &len_p, stdin);
 #else
-		r = _getline(info, buf, &len_p);
+		r = _getsline(info, buf, &len_p);
 #endif
 		if (r > 0)
 		{
@@ -32,8 +32,8 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 				r--;
 			}
 			info->linecount_flag = 1;
-			remove_comments(*buf);
-			build_history_list(info, *buf, info->histcount++);
+			delete_comments(*buf);
+			build_momery_list(info, *buf, info->histcount++);
 			/* if (_strchr(*buf, ';')) is this a command chain? */
 			{
 				*len = r;
@@ -45,11 +45,11 @@ ssize_t input_buf(info_t *info, char **buf, size_t *len)
 }
 
 /**
- * get_input - removes the newline from a queue
+ * gets_input - removes the newline from a queue
  * @info: struct parameter
  * Return: bytes read
 */
-ssize_t get_input(info_t *info)
+ssize_t gets_input(info_t *info)
 {
 	static char *buf; /* the ';' command chain buffer */
 	static size_t i, j, len;
@@ -108,13 +108,13 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 }
 
 /**
- * _getline - obtains the following line of input from STDIN
+ * _getsline - obtains the following line of input from STDIN
  * @info: struct parameter
  * @ptr: address of the buffer's pointer, preallocated space, or NULL
  * @length: if not NULL, the size of the preallocated ptr buffer.
  * Return: s
 */
-int _getline(info_t *info, char **ptr, size_t *length)
+int _getsline(info_t *info, char **ptr, size_t *length)
 {
 	static char buf[READ_BUF_SIZE];
 	static size_t i, len;
@@ -132,16 +132,16 @@ int _getline(info_t *info, char **ptr, size_t *length)
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
-	c = _strchr(buf + i, '\n');
+	c = _strch(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
 	if (!new_p) /* MALLOC FAILURE! */
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		_strncat(new_p, buf + i, k - i);
+		*_strct(new_p, buf + i, k - i);
 	else
-		_strncpy(new_p, buf + i, k - i + 1);
+		*_strcp(new_p, buf + i, k - i + 1);
 
 	s += k - i;
 	i = k;
@@ -154,11 +154,11 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * sigintHandler - blocks ctrl-C
+ * sigin- blocks ctrl-C
  * @sig_num:  number signal
  * Return: void
 */
-void sigintHandler(__attribute__((unused))int sig_num)
+void sigin(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");

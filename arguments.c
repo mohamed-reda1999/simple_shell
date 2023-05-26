@@ -14,13 +14,13 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - obtains a variable's value in the environment
+ * _getsenv - obtains a variable's value in the environment
  * @info: Arrangement with potential arguments. used to keep up
  * @name: env var name
  * Return: the value
 */
 
-char *_getenv(info_t *info, const char *name)
+char *_getsenv(info_t *info, const char *name)
 {
 	list_t *node = info->env;
 	char *p;
@@ -36,18 +36,18 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv - Set up a new environment,
+ * _wesetenv - Set up a new environment,
  * variable or alter one that already exists.
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  *  Return: Always 0
 */
 
-int _mysetenv(info_t *info)
+int _wesetenv(info_t *info)
 {
 	if (info->argc != 3)
 	{
-		_eputs("Incorrect number of arguements\n");
+		_eput("Incorrect number of arguements\n");
 		return (1);
 	}
 	if (_setenv(info, info->argv[1], info->argv[2]))
@@ -56,19 +56,19 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv - Eliminate a setting variable
+ * _weunsetenv - Eliminate a setting variable
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  * Return: Always 0
 */
 
-int _myunsetenv(info_t *info)
+int _weunsetenv(info_t *info)
 {
 	int i;
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguements.\n");
+		_eput("Too few arguements.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
@@ -78,13 +78,13 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - fills in the env linked list
+ * pulate_env_list - fills in the env linked list
  * @info: Arrangement with potential arguments.
  * used to keep the prototype constant function
  * Return: Always 0
 */
 
-int populate_env_list(info_t *info)
+int pulate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;

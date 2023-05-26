@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * _erratoi - creates an integer from a string
+ * _err - creates an integer from a string
  * @s: the string being transformed
  * Return: 0 number transformed if there are no numbers in the string.
  *       -1 on error
 */
 
-int _erratoi(char *s)
+int _err(char *s)
 {
 	int i = 0;
 	unsigned long int result = 0;
@@ -30,39 +30,39 @@ int _erratoi(char *s)
 }
 
 /**
- * print_error - prints a message in error
+ * echo_error - prints a message in error
  * @info: struct for argument and return information
  * @estr: string with the indicated error type
  * Return: 0 number transformed if there are no numbers in the string.
  *        -1 on error
 */
 
-void print_error(info_t *info, char *estr)
+void echo_error(info_t *info, char *estr)
 {
-	_eputs(info->fname);
-	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+	_eput(info->fname);
+	_eput(": ");
+	echo_int(info->line_count, STDERR_FILENO);
+	_eput(": ");
+	_eput(info->argv[0]);
+	_eput(": ");
+	_eput(estr);
 }
 
 /**
- * print_d - function prints a decimal (integer) number (base 10)
+ * echo_int - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fd: The address to contact is
  * Return: Character count on the page
 */
 
-int print_d(int input, int fd)
+int echo_int(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int _abs_, current;
 
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
+		__putchar = _eputint;
 	if (input < 0)
 	{
 		_abs_ = -input;
@@ -88,14 +88,14 @@ int print_d(int input, int fd)
 }
 
 /**
- * convert_number - a converter function that mimics itoa
+ * change_number - a converter function that mimics itoa
  * @num: number
  * @base: base
  * @flags: argument flags
  * Return: string
 */
 
-char *convert_number(long int num, int base, int flags)
+char *change_number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -124,12 +124,12 @@ char *convert_number(long int num, int base, int flags)
 }
 
 /**
- * remove_comments - function swaps out the initial instance of '#' with '\0'
+ * delete_comments - function swaps out the initial instance of '#' with '\0'
  * @buf: address of the modified string
  * Return: Always 0;
 */
 
-void remove_comments(char *buf)
+void delete_comments(char *buf)
 {
 	int i;
 

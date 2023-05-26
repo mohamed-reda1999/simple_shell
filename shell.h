@@ -114,66 +114,66 @@ typedef struct builtin
 
 
 /* _atoi1.c */
-int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+int inter_atoi(info_t *);
+int delim(char, char *);
+int alpha(int);
+int _toi(char *);
 
 /* unix.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _weexit(info_t *);
+int _wecd(info_t *);
+int _wehelp(info_t *);
 
 /* unix1.c */
-int _myalias(info_t *);
-int _myhistory(info_t *);
+int _wealias(info_t *);
+int _wemomrey(info_t *);
 
 /* arguments.c */
-int _myenv(info_t *);
-char *_getenv(info_t *, const char *);
-int _myunsetenv(info_t *);
-int _mysetenv(info_t *);
-int populate_env_list(info_t *);
+int _weenv(info_t *);
+char *_getsenv(info_t *, const char *);
+int _weunsetenv(info_t *);
+int _wesetenv(info_t *);
+int pulate_env_list(info_t *);
 
 /* exists.c */
-int _eputchar(char);
-void _eputs(char *);
-int _putsfd(char *str, int fd);
-int _putfd(char c, int fd);
+int _eputint(char);
+void _eput(char *);
+int _putstr(char *str, int fd);
+int _putc(char c, int fd);
 
 /* exists1.c */
-int print_d(int, int);
-void remove_comments(char *);
-char *convert_number(long int, int, int);
-void print_error(info_t *, char *);
-int _erratoi(char *);
+int echo_int(int, int);
+void delete_comments(char *);
+char *change_number(long int, int, int);
+void echo_error(info_t *, char *);
+int _err(char *);
 
 /* exit.c */
-char *_strncat(char *, char *, int);
-char *_strncpy(char *, char *, int);
-char *_strchr(char *, char);
+char *_strct(char *, char *, int);
+char *_strcp(char *, char *, int);
+char *_strch(char *, char);
 
 /* thebuilt-in.c */
-void sigintHandler(int);
-int _getline(info_t *, char **, size_t *);
-ssize_t get_input(info_t *);
+void sigin(int);
+int _getsline(info_t *, char **, size_t *);
+ssize_t gets_input(info_t *);
 
 /* gettheline.c */
-int _setenv(info_t *, char *, char *);
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
+int *setint(info_t *, char *, char *);
+char _gets_environ(info_t *);
+int _unsetint(info_t *, char *);
 
 /* strings.c */
-void clear_info(info_t *);
-void free_info(info_t *, int);
-void set_info(info_t *, char **);
+void clear_fo(info_t *);
+void free_fo(info_t *, int);
+void set_fo(info_t *, char **);
 
 /* status.c */
-int read_history(info_t *info);
-char *get_history_file(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
-int write_history(info_t *info);
+int read_momery(info_t *info);
+char *gets_momery_file(info_t *info);
+int build_momery_list(info_t *info, char *buf, int linecount);
+int number_momery(info_t *info);
+int write_momery(info_t *info);
 
 /* environment.c */
 int delete_node_at_index(list_t **, unsigned int);

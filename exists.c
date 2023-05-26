@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _eputs - prints a string of input
+ * _eput - prints a string of input
  * @str: string that needs to be printed
  * Return: Nothing
 */
 
-void _eputs(char *str)
+void _eput(char *str)
 {
 	int i = 0;
 
@@ -14,19 +14,19 @@ void _eputs(char *str)
 		return;
 	while (str[i] != '\0')
 	{
-		_eputchar(str[i]);
+		_eputint(str[i]);
 		i++;
 	}
 }
 
 /**
- * _eputchar - adds the letter C to stderr.
+ * _eputint - adds the letter C to stderr.
  * @c: The text to be printed
  * Return: On success 1.
  * On error, -1 is return, and the proper errno value is set.
 */
 
-int _eputchar(char c)
+int _eputint(char c)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -42,14 +42,14 @@ int _eputchar(char c)
 }
 
 /**
- * _putfd - writes the letter C to the specified fd.
+ * _putc - writes the letter C to the specified fd.
  * @c: print The character
  * @fd: write The filedescriptor
  * Return: On success 1.
  * On error, -1 returned, and the proper value of errno is set.
 */
 
-int _putfd(char c, int fd)
+int _putc(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -65,13 +65,13 @@ int _putfd(char c, int fd)
 }
 
 /**
- * _putsfd - input string prints
+ * _putstr - input string prints
  * @str: a string that will be printed
  * @fd: The address to contact is
  * Return: amount of characters entered
 */
 
-int _putsfd(char *str, int fd)
+int _putstr(char *str, int fd)
 {
 	int i = 0;
 
@@ -79,7 +79,7 @@ int _putsfd(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*str++, fd);
+		i += _putc(*str++, fd);
 	}
 	return (i);
 }

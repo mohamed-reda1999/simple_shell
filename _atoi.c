@@ -12,12 +12,12 @@ int interactive(info_t *info)
 }
 
 /**
- * is_delim - determines whether a character is a delimeter
+ * delim - determines whether a character is a delimeter
  * @c:  check the char
  * @delim: the delimeter string
  * Return: 1 if true, 0 if false
  */
-int is_delim(char c, char *delim)
+int delim(char c, char *delim)
 {
 	while (*delim)
 		if (*delim++ == c)
@@ -26,12 +26,12 @@ int is_delim(char c, char *delim)
 }
 
 /**
- * _isalpha - makes an alphabetic character chec
+ * alpha - makes an alphabetic character chec
  * @c:  input the char
  * Return: 1 if c is alphabetic, 0 otherwise
  */
 
-int _isalpha(int c)
+int alpha(int c)
 {
 	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
@@ -40,12 +40,12 @@ int _isalpha(int c)
 }
 
 /**
- * _atoi - creates an integer from a string
+ * _toi - creates an integer from a string
  * @s: converted the string
  * Return: 0 number transformed if there are no numbers in the string
  */
 
-int _atoi(char *s)
+int _toi(char *s)
 {
 	int i, sign = 1, flag = 0, output;
 	unsigned int result = 0;
