@@ -186,7 +186,7 @@ void letgo_thelist(list_t **);
 char **makelist_to_thestrings(list_t *);
 size_t thelistof_thelen(const list_t *);
 size_t echo_thelist(const list_t *);
-ssize_t get_node_index(list_t *, list_t *);
+ssize_t gets_thenode_index(list_t *, list_t *);
 list_t *thenode_begin_with(list_t *, char *, char);
 
 /* implementation.c */
@@ -198,9 +198,9 @@ int _cmd(info_t *, char *);
 char *duplicate_thechars(char *, int, int);
 
 /* operators.c */
-void *_realloc(void *, unsigned int, unsigned int);
-void ffree(char **);
-char *_memset(char *, char, unsigned int);
+void *_resize(void *, unsigned int, unsigned int);
+void gofree(char **);
+char *_setting(char *, char, unsigned int);
 
 /* assumptions.c */
 void forks_thecmd(info_t *);
