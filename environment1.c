@@ -1,12 +1,13 @@
 #include "shell.h"
 
 /**
- * list_len - Defines the length of this association list
+ * thelistof_thelen - Defines the length,
+ * of this association list
  * @h: you must assign a pointer to the root node
  *
  * Return: You must return with the size of the list
  */
-size_t list_len(const list_t *h)
+size_t thelistof_thelen(const list_t *h)
 {
 	size_t i = 0;
 
@@ -19,13 +20,14 @@ size_t list_len(const list_t *h)
 }
 
 /**
- * list_to_strings - Provides an array of strings from list->str.index_list
+ * makelist_to_thestrings - Provides an array of strings,
+ * from list->str.index_list
  *
  * @head: you must assign a pointer to the root node
  *
  * Return: you must return with an array of strings
  */
-char **list_to_strings(list_t *head)
+char **makelist_to_thestrings(list_t *head)
 {
 	list_t *node = head;
 	size_t i = list_len(head), j;
@@ -57,12 +59,12 @@ char **list_to_strings(list_t *head)
 
 
 /**
- * print_list - A list_t linked list is printed with all of its contents
+ * echo_thelist - A list_t linked list is printed with all of its contents
  * @h: you must assign a pointer to the root node
  *
  * Return: you must return wwith the size of the list
  */
-size_t print_list(const list_t *h)
+size_t echo_thelist(const list_t *h)
 {
 	size_t i = 0;
 
@@ -80,14 +82,15 @@ size_t print_list(const list_t *h)
 }
 
 /**
- * node_starts_with - Rreturns a node whose string prefix is the first element
+ * thenode_begin_with - Rreturns a node whose string prefix,
+ * is the first element
  * @node: list head is indicated by a pointer
  * @prefix: Match the string's direction
  * @c: The subsequent character that comes after a given prefix to a match
  *
  * Return: return when you match the node or null
  */
-list_t *node_starts_with(list_t *node, char *prefix, char c)
+list_t *thenode_begin_with(list_t *node, char *prefix, char c)
 {
 	char *p = NULL;
 

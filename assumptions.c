@@ -1,7 +1,8 @@
 #include "shell.h"
 
 /**
- * hsh - refers to a loop being present in the main shell
+ * assumptionsloop - refers to a loop being present,
+ * in the main shell
  * @info: refers to Parameter and returned information struct to use
  *
  * @av: from main() you can find the argument vector
@@ -9,7 +10,7 @@
  * Return: return with 0 when you succeed,
  * return with 1 on error, or error code
  */
-int hsh(info_t *info, char **av)
+int assumptionsloop(info_t *info, char **av)
 {
 	ssize_t r = 0;
 	int builtin_ret = 0;
@@ -54,7 +55,7 @@ int hsh(info_t *info, char **av)
  * return with 1 if builtin was found but didn't succeed,
  * return with 2 if builtin signals with exit()
  */
-int find_builtin(info_t *info)
+int get_thebuiltin(info_t *info)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
@@ -80,12 +81,12 @@ int find_builtin(info_t *info)
 }
 
 /**
- * find_cmd - a command in PATH must be found
+ * get_thecmd - a command in PATH must be found
  * @info: refers to Parameter and returned information struct
  *
  * Return: you must return with void
  */
-void find_cmd(info_t *info)
+void get_thecmd(info_t *info)
 {
 	char *path = NULL;
 	int i, k;
@@ -122,12 +123,12 @@ void find_cmd(info_t *info)
 }
 
 /**
- * fork_cmd - the process of forking an exec thread involves running cmd
+ * forks_thecmd - the process of forking an exec thread involves running cmd
  * @info: refers to Parameter and returned information struct
  *
  * * Return: you must return with void
  */
-void fork_cmd(info_t *info)
+void forks_thecmd(info_t *info)
 {
 	pid_t child_pid;
 

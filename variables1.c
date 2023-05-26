@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * _strcpy - a string is copied
+ * _copystring - a string is copied
  * @dest: referes to the destination
  *
  * @src: indicates to the source
  *
  * Return: you must return with pointer to the destination
  */
-char *_strcpy(char *dest, char *src)
+char *_copystring(char *dest, char *src)
 {
 	int i = 0;
 
@@ -24,13 +24,13 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strdup - a string must be duplicated
+ * _duplicator - a string must be duplicated
  *
  * @str: refers to he string that must be duplicated
  *
  * Return: return with thepointer of duplicated string
  */
-char *_strdup(const char *str)
+char *_duplicator(const char *str)
 {
 	int length = 0;
 	char *ret;
@@ -48,13 +48,13 @@ char *_strdup(const char *str)
 }
 
 /**
- * _puts - you must print input of the string
+ * _adds - you must print input of the string
  *
  * @str: refers to the string that should be printed
  *
  * Return: return with nothing
  */
-void _puts(char *str)
+void _adds(char *str)
 {
 	int i = 0;
 
@@ -68,13 +68,13 @@ void _puts(char *str)
 }
 
 /**
- * _putchar - Incorporates the letter C into the stdout stream
+ * _coverter - Incorporates the letter C into the stdout stream
  * @c: C is the character to  be printed
  *
  * Return: return with 1 when you succeed,
  * return with -1 on error, and errno is set correctly.
  */
-int _putchar(char c)
+int _converter(char c)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];

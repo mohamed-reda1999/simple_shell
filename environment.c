@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * add_node - A node must be added at the beginning of the list
+ * append_node - A node must be added at the beginning of the list
  *
  * @head: you should assign the pointer to the head node
  * @str: indicates to the sequence of characters assigned,
@@ -9,7 +9,7 @@
  * @num: the number indicates to history's node index node
  * Return: return when find the size of the list
  */
-list_t *add_node(list_t **head, const char *str, int num)
+list_t append_node(list_t **head, const char *str, int num)
 {
 	list_t *new_head;
 
@@ -35,7 +35,7 @@ list_t *add_node(list_t **head, const char *str, int num)
 }
 
 /**
- * add_node_end - a node must be added to the end of the list
+ * append_thenode_end - a node must be added to the end of the list
  *
  * @head: you should assign the pointer to the head node
  * @str: indicates to the sequence of characters assigned,
@@ -44,7 +44,7 @@ list_t *add_node(list_t **head, const char *str, int num)
  *
  * Return: return when find the size of the list
  */
-list_t *add_node_end(list_t **head, const char *str, int num)
+list_t *append_thenode_end(list_t **head, const char *str, int num)
 {
 	list_t *new_node, *node;
 
@@ -78,13 +78,13 @@ list_t *add_node_end(list_t **head, const char *str, int num)
 }
 
 /**
- * print_list_str - a list_t linked list is printed only with its str element
+ * echo_thelist_str - a list_t linked list is printed only with its str element
  *
  * @h: you should assign the pointer to the first node
  *
  * Return: return with the size of the list
  */
-size_t print_list_str(const list_t *h)
+size_t echo_thelist_str(const list_t *h)
 {
 	size_t i = 0;
 
@@ -99,14 +99,14 @@ size_t print_list_str(const list_t *h)
 }
 
 /**
- * delete_node_at_index - A node at a particular index is eliminated
+ * erase_thenode_at_index - A node at a particular index is eliminated
  *
  * @head: you should assign the pointer to the head node
  * @index: the location of the selected node you wish to eliminate
  *
  * Return: return with 1 when yo succeed, and with 0 when failure
  */
-int delete_node_at_index(list_t **head, unsigned int index)
+int erase_thenode_at_index(list_t **head, unsigned int index)
 {
 	list_t *node, *prev_node;
 	unsigned int i = 0;
@@ -140,13 +140,13 @@ int delete_node_at_index(list_t **head, unsigned int index)
 }
 
 /**
- * free_list - all the nodes of the list must be freed
+ * letgo_thelist - all the nodes of the list must be freed
  *
  * @head_ptr: you should assign the pointer to the head of the  node
  *
  * Return: no value void
  */
-void free_list(list_t **head_ptr)
+void letgo_thelist(list_t **head_ptr)
 {
 	list_t *node, *next_node, *head;
 

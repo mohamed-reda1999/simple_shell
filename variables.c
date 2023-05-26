@@ -1,12 +1,13 @@
 #include "shell.h"
 
 /**
- * _strlen - you need to return with the length of a string
+ * _findthelenghtstrlen - you need to return,
+ * with the length of a string
  * @s: to check the length of the string
  *
  * Return: return with the length of a string in integers
  */
-int _strlen(char *s)
+int _findthelengthstrlen(char *s)
 {
 	int i = 0;
 
@@ -19,14 +20,15 @@ int _strlen(char *s)
 }
 
 /**
- * _strcmp - you must compare two strangs lexicographically.
+ * _compareandstrcmp - you must compare two,
+ * strangs lexicographically.
  * @s1: referes to the first strang
  * @s2: indicates to the second strang
  * Return: return with negative if s1 < s2,
  * return with positive if s1 > s2,
  * return with  zero if s1 == s2
  */
-int _strcmp(char *s1, char *s2)
+int _compareandstrcmp(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
@@ -42,14 +44,14 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - evaluates whether the haystack comes before the needle
+ * begins_with - evaluates whether the haystack comes before the needle
  * @haystack: refers to the string that needs to be searched for
  *
  * @needle: refers to the substring that need to be found
  * Return: return with address of next char of haystack,
  * or return with  NULL
  */
-char *starts_with(const char *haystack, const char *needle)
+char *begins_with(const char *haystack, const char *needle)
 {
 	while (*needle)
 		if (*needle++ != *haystack++)
@@ -58,13 +60,13 @@ char *starts_with(const char *haystack, const char *needle)
 }
 
 /**
- * _strcat - brings together two strings
+ * _connectandstrcat - brings together two strings
  * @dest: refers to the destination of the buffer
  *
  * @src: refers to the source of the buffer
  * Return: return with the pointer to the destination of the  buffer
  */
-char *_strcat(char *dest, char *src)
+char *_connectandstrcat(char *dest, char *src)
 {
 	char *ret = dest;
 

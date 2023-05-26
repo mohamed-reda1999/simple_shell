@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * **strtow - word-by-word splits a string,
+ * **splits - word-by-word splits a string,
  * Delimiters used repeatedly are ignored
  *
  * @str: refers to the  input of a string
@@ -11,7 +11,7 @@
  * or return with NULL if you failed
  */
 
-char **strtow(char *str, char *d)
+char **splits(char *str, char *d)
 {
 	int i, j, k, m, numwords = 0;
 	char **s;
@@ -53,7 +53,7 @@ char **strtow(char *str, char *d)
 }
 
 /**
- * **strtow2 - the process of splitting a string occurs word for word
+ * **splits1 - the process of splitting a string occurs word for word
  *
  * @str: refers to the input which is string
  * @d: the character d refers to the delimeter
@@ -61,7 +61,7 @@ char **strtow(char *str, char *d)
  * Return: return with a pointer indicates to an array of strings,
  * or return with NULL whe you fail
  */
-char **strtow2(char *str, char d)
+char **splits1(char *str, char d)
 {
 	int i, j, k, m, numwords = 0;
 	char **s;

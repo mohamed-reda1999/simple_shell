@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * is_chain - To determine whether the current character in the buffer,
+ * _thechain - To determine whether the current character in the buffer,
  * is a delimiter for a chain, a test is conducted
  * @info: indicates to the parameter of the struct
  *
@@ -11,7 +11,7 @@
  * Return: return with 1 if you managed to chain the delimeter,
  * return with 0 if otherwise
  */
-int is_chain(info_t *info, char *buf, size_t *p)
+int _thechain(info_t *info, char *buf, size_t *p)
 {
 	size_t j = *p;
 
@@ -39,7 +39,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
 }
 
 /**
- * check_chain - based on last status checks, chaining should be continued
+ * examine_thechain - based on last status checks, chaining should be continued
  * @info: indicates to the parameter of the struct
  *
  * @buf: refers to the char of the buffer
@@ -50,7 +50,7 @@ int is_chain(info_t *info, char *buf, size_t *p)
  * @len: this refers to the length of the buffer
  * Return: you should return wiht Void
  */
-void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
+void examine_thechain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 {
 	size_t j = *p;
 
@@ -75,7 +75,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 }
 
 /**
- * replace_alias - refers to the vars that must be replaced,
+ * substitute_thealias - refers to the alias that must be replaced,
  * in the tokenized string
  *
  * @info: indicates to the parameter of the struct
@@ -83,7 +83,7 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
  * Return: return with 1 if you manage to replace,
  * return with 0 otherwise
  */
-int replace_alias(info_t *info)
+int substitute_thealias(info_t *info)
 {
 	int i;
 	list_t *node;
@@ -107,14 +107,14 @@ int replace_alias(info_t *info)
 }
 
 /**
- * replace_vars - refers to the vars that must be replaced,
+ * substitute_thevars - refers to the vars that must be replaced,
  * in the tokenized string
  * @info: indicates to the parameter of the struct
  *
  * Return: return with 1 if you manage to replace,
  * return with 0 otherwise
  */
-int replace_vars(info_t *info)
+int substitute_thevars(info_t *info)
 {
 	int i = 0;
 	list_t *node;
@@ -150,14 +150,14 @@ int replace_vars(info_t *info)
 }
 
 /**
- * replace_string - a string must be replaced
+ * substitute_thestring - a string must be replaced
  * @old: refers to the address of an old string
  * @new: indicates to the new string
  *
  * Return: return with 1 if you managed to replace,
  * return with 0 if otherwise
  */
-int replace_string(char **old, char *new)
+int substitute_thestring(char **old, char *new)
 {
 	free(*old);
 	*old = new;
