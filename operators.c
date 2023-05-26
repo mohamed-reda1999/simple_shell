@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _memset - a constant byte is filled into memory
+ * _setting - a constant byte is filled into memory
  * @s: the pointer located in the memory region
  *
  * @b: indicates to the byte that is utilized to fill *s
@@ -9,7 +9,7 @@
  *
  * Return: return with (s)which is a pointer to the memory location s
  */
-char *_memset(char *s, char b, unsigned int n)
+char *_setting(char *s, char b, unsigned int n)
 {
 	unsigned int i;
 
@@ -19,11 +19,11 @@ char *_memset(char *s, char b, unsigned int n)
 }
 
 /**
- * ffree - A string of strings is released
+ * gofree - A string of strings is released
  *
  * @pp: refers to one string of the strings
  */
-void ffree(char **pp)
+void gofree(char **pp)
 {
 	char **a = pp;
 
@@ -35,7 +35,7 @@ void ffree(char **pp)
 }
 
 /**
- * _realloc - a block of a memory needs to be relocated
+ * _resize - a block of a memory needs to be relocated
  * @ptr: Pointer to a block that was previously malloc'd
  * @old_size: size of the previous block of byte
  *
@@ -43,7 +43,7 @@ void ffree(char **pp)
  * Return: return with the output thatat refers to the pointer,
  * the new block.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_resize(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *p;
 
