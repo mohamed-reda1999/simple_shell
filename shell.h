@@ -176,26 +176,26 @@ int number_momery(info_t *info);
 int write_momery(info_t *info);
 
 /* environment.c */
-int delete_node_at_index(list_t **, unsigned int);
-list_t *add_node(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
-list_t *add_node_end(list_t **, const char *, int);
-void free_list(list_t **);
+int erase_thenode_at_index(list_t **, unsigned int);
+list_t *append_node(list_t **, const char *, int);
+size_t echo_thelist_str(const list_t *);
+list_t *append_thenode_end(list_t **, const char *, int);
+void letgo_thelist(list_t **);
 
 /* environment1.c */
-char **list_to_strings(list_t *);
-size_t list_len(const list_t *);
-size_t print_list(const list_t *);
+char **makelist_to_thestrings(list_t *);
+size_t thelistof_thelen(const list_t *);
+size_t echo_thelist(const list_t *);
 ssize_t get_node_index(list_t *, list_t *);
-list_t *node_starts_with(list_t *, char *, char);
+list_t *thenode_begin_with(list_t *, char *, char);
 
 /* implementation.c */
-int bfree(void **);
+int goree(void **);
 
 /*separator.c */
-char *find_path(info_t *, char *, char *);
-int is_cmd(info_t *, char *);
-char *dup_chars(char *, int, int);
+char *get_thepath(info_t *, char *, char *);
+int _cmd(info_t *, char *);
+char *duplicate_thechars(char *, int, int);
 
 /* operators.c */
 void *_realloc(void *, unsigned int, unsigned int);
@@ -203,33 +203,33 @@ void ffree(char **);
 char *_memset(char *, char, unsigned int);
 
 /* assumptions.c */
-void fork_cmd(info_t *);
-int hsh(info_t *, char **);
-void find_cmd(info_t *);
-int find_builtin(info_t *);
+void forks_thecmd(info_t *);
+int assumptionsloop(info_t *, char **);
+void get_thecmd(info_t *);
+int get_thebuiltin(info_t *);
 
 
 /* variables.c */
-char *starts_with(const char *, const char *);
-int _strlen(char *);
-char *_strcat(char *, char *);
-int _strcmp(char *, char *);
+char *begins_with(const char *, const char *);
+int _findthelengthstrlen(char *);
+char *_connectandstrcat(char *, char *);
+int _compareandstrcmp(char *, char *);
 
 /* variables1.c */
-char *_strcpy(char *, char *);
-char *_strdup(const char *);
-void _puts(char *);
-int _putchar(char);
+char *_copystring(char *, char *);
+char *_duplicator(const char *);
+void _adds(char *);
+int _converter(char);
 
 /* comments.c */
-char **strtow2(char *, char);
-char **strtow(char *, char *);
+char **splist(char *, char);
+char **splist1(char *, char *);
 
 /* descriptor.c */
-int replace_string(char **, char *);
-int is_chain(info_t *, char *, size_t *);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int substitute_thestring(char **, char *);
+int thechain(info_t *, char *, size_t *);
+int substitute_thealias(info_t *);
+int substitute_thevars(info_t *);
+void examine_thechain(info_t *, char *, size_t *, size_t, size_t);
 
 #endif
