@@ -17,25 +17,25 @@ int assumptionsloop(info_t *info, char **av)
 
 	while (r != -1 && builtin_ret != -2)
 	{
-		clear_info(info);
-		if (interactive(info))
-			_puts("$ ");
-		_eputchar(BUF_FLUSH);
-		r = get_input(info);
+		clear_fo(info);
+		if (inter_atoi(info))
+			_adds("$ ");
+		_eputstr(BUF_FLUSH);
+		r = gets_input(info);
 		if (r != -1)
 		{
-			set_info(info, av);
-			builtin_ret = find_builtin(info);
+			set_fo(info, av);
+			builtin_ret = get_thebuiltin(info);
 			if (builtin_ret == -1)
-				find_cmd(info);
+				get_thecmd(info);
 		}
 		else if (interactive(info))
-			_putchar('\n');
-		free_info(info, 0);
+			_putstr('\n');
+		free_fo(info, 0);
 	}
-	write_history(info);
-	free_info(info, 1);
-	if (!interactive(info) && info->status)
+	write_momery(info);
+	free_fo(info, 1);
+	if (!inter_atoi(info) && info->status)
 		exit(info->status);
 	if (builtin_ret == -2)
 	{
@@ -59,19 +59,19 @@ int get_thebuiltin(info_t *info)
 {
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _myexit},
-		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
-		{"alias", _myalias},
+		{"exit", _weexit},
+		{"env", _weenv},
+		{"help", _wehelp},
+		{"history", _wemomery},
+		{"setenv", _wesetenv},
+		{"unsetenv", _weunsetenv},
+		{"cd", _wecd},
+		{"alias", _alias},
 		{NULL, NULL}
 	};
 
 	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+		if ( _compareandstrcmp(info->argv[0], builtintbl[i].type) == 0)
 		{
 			info->line_count++;
 			built_in_ret = builtintbl[i].func(info);
@@ -98,22 +98,22 @@ void get_thecmd(info_t *info)
 		info->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
+		if (! delim(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = get_thepath(info, _getsenv(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
-		fork_cmd(info);
+		forks_thecmd(info);
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
-					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
-			fork_cmd(info);
+		if ((inter_atoi(info) || _getsenv(info, "PATH=")
+					|| info->argv[0][0] == '/') && _cmd(info, info->argv[0]))
+			forks_thecmd(info);
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
