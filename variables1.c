@@ -62,13 +62,13 @@ void _adds(char *str)
 		return;
 	while (str[i] != '\0')
 	{
-		_putchar(str[i]);
+		_converter(str[i]);
 		i++;
 	}
 }
 
 /**
- * _coverter - Incorporates the letter C into the stdout stream
+ * _converter - Incorporates the letter C into the stdout stream
  * @c: C is the character to  be printed
  *
  * Return: return with 1 when you succeed,

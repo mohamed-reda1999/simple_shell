@@ -8,7 +8,7 @@
  * Return: The resulting value will be 1 if the input is released,
  * and 0 otherwise
  */
-int gofree(void **ptr)
+int goree(void **ptr)
 {
 	if (ptr && *ptr)
 	{

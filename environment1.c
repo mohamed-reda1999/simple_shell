@@ -30,7 +30,7 @@ size_t thelistof_thelen(const list_t *h)
 char **makelist_to_thestrings(list_t *head)
 {
 	list_t *node = head;
-	size_t i = list_len(head), j;
+	size_t i = thelistof_thelen(head), j;
 	char **strs;
 	char *str;
 
@@ -41,7 +41,7 @@ char **makelist_to_thestrings(list_t *head)
 		return (NULL);
 	for (i = 0; node; node = node->next, i++)
 	{
-		str = malloc(_strlen(node->str) + 1);
+		str = malloc(_findthelengthstrlen(node->str) + 1);
 		if (!str)
 		{
 			for (j = 0; j < i; j++)
@@ -50,7 +50,7 @@ char **makelist_to_thestrings(list_t *head)
 			return (NULL);
 		}
 
-		str = _strcpy(str, node->str);
+		str = _copystring(str, node->str);
 		strs[i] = str;
 	}
 	strs[i] = NULL;
@@ -70,11 +70,11 @@ size_t echo_thelist(const list_t *h)
 
 	while (h)
 	{
-		_puts(convert_number(h->num, 10, 0));
-		_putchar(':');
-		_putchar(' ');
-		_puts(h->str ? h->str : "(nil)");
-		_puts("\n");
+		_adds(change_number(h->num, 10, 0));
+		_converter(':');
+		_converter(' ');
+		_adds(h->str ? h->str : "(nil)");
+		_adds("\n");
 		h = h->next;
 		i++;
 	}
@@ -96,7 +96,7 @@ list_t *thenode_begin_with(list_t *node, char *prefix, char c)
 
 	while (node)
 	{
-		p = starts_with(node->str, prefix);
+		p = begins_with(node->str, prefix);
 		if (p && ((c == -1) || (*p == c)))
 			return (node);
 		node = node->next;
@@ -113,7 +113,7 @@ list_t *thenode_begin_with(list_t *node, char *prefix, char c)
  *
  * Return: you should return with index of node or return with -1
  */
-ssize_t get_node_index(list_t *head, list_t *node)
+ssize_t gets_thenode_index(list_t *head, list_t *node)
 {
 	size_t i = 0;
 

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _findthelenghtstrlen - you need to return,
+ * _findthelengthstrlen - you need to return,
  * with the length of a string
  * @s: to check the length of the string
  *

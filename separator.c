@@ -62,24 +62,24 @@ char *get_thepath(info_t *info, char *pathstr, char *cmd)
 
 	if (!pathstr)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((_findthelengthstrlen(cmd) > 2) && begins_with(cmd, "./"))
 	{
-		if (is_cmd(info, cmd))
+		if (_cmd(info, cmd))
 			return (cmd);
 	}
 	while (1)
 	{
 		if (!pathstr[i] || pathstr[i] == ':')
 		{
-			path = dup_chars(pathstr, curr_pos, i);
+			path = duplicate_thechars(pathstr, curr_pos, i);
 			if (!*path)
-				_strcat(path, cmd);
+				_connectandstrcat(path, cmd);
 			else
 			{
-				_strcat(path, "/");
-				_strcat(path, cmd);
+				_connectandstrcat(path, "/");
+				_connectandstrcat(path, cmd);
 			}
-			if (is_cmd(info, path))
+			if (_cmd(info, path))
 				return (path);
 			if (!pathstr[i])
 				break;
